@@ -1,0 +1,22 @@
+name: Afficher les Variables d'Environnement
+ 
+on: [push]
+ 
+jobs:
+  show-env-vars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Afficher les Variables d'Environnement
+        run: |
+          echo "Nom du Référentiel : $GITHUB_REPOSITORY"
+          echo "Référence Déclenchante : $GITHUB_REF"
+          echo "Hachage du Commit : $GITHUB_SHA"
+          echo "Événement Déclencheur : $GITHUB_EVENT_NAME"
+          echo "Acteur (Utilisateur/Application) : $GITHUB_ACTOR"
+          echo "Répertoire de Travail : $GITHUB_WORKSPACE"
+          echo "Nom du Job en Cours : $GITHUB_JOB"
+          echo "Nom de l'Action en Cours : $GITHUB_ACTION"
+          echo "Chemin vers le Fichier d'Événement : $GITHUB_EVENT_PATH"
+          echo "Nom du Workflow en Cours : $GITHUB_WORKFLOW"
+          echo "Branche de la Pull Request (HEAD) : $GITHUB_HEAD_REF"
+          echo "Branche de Base de la Pull Request : $GITHUB_BASE_REF"
