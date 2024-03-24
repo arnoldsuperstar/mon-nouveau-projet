@@ -5,6 +5,9 @@ on:
     branches:
       - '*'
 
+env:
+  MY_SECRET_TOKEN: ${{ secrets.MY_SECRET_TOKEN }}
+
 jobs:
   my-job:
     runs-on: ubuntu-latest
@@ -13,7 +16,7 @@ jobs:
       - name: Mon job simple
         run: echo "Mon premier workflow sur Github Actions"
       - name: Définir une variable dans les "vars"
-        run: ::set-var name=MA_VAR::ma-valeur
+        run: echo "Ca ne fonctionne pas ==> ::set-var name=MA_VAR::ma-valeur"
 
   un-autre-job:
     runs-on: ubuntu-latest
@@ -21,3 +24,8 @@ jobs:
       - name: Utilisation de la variable "var" dans un autre job
         run: echo ${{ vars.MA_VAR }}
 
+  un-3eme-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Utilisation de la variable "var" dans un autre job
+        run: echo "Le token est : $SECRET_TOKEN"
