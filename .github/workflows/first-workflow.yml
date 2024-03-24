@@ -13,7 +13,7 @@ jobs:
       - name: Mon job simple
         run: echo "Mon premier workflow sur Github Actions"
       - name: Définir une variable dans les "vars"
-        run: echo "::set-var name=MA_VAR::ma-valeur"
+        run: ::set-var name=MA_VAR::ma-valeur
 
   un-autre-job:
     runs-on: ubuntu-latest
