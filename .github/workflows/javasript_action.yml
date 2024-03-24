@@ -16,12 +16,11 @@
               result-encoding: string
               retries: 3
               script: |
-          const issueTitle = "Nouvelle issue automatique";
-          const issueBody = "Cette issue a été créée par le flux de travail de GitHub Actions.";
-     
-          github.issues.create({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            title: issueTitle,
-            body: issueBody
-          });
+                const issueTitle = "Nouvelle issue automatique";
+                const issueBody = "Cette issue a été créée par le flux de travail de GitHub Actions.";
+                github.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title: issueTitle,
+                  body: issueBody
+                });
