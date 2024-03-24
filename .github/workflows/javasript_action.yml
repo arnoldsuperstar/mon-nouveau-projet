@@ -1,0 +1,27 @@
+    name: Ajouter des variables à l'environnement
+     
+    on:
+      push:
+        branches:
+          - master
+     
+    jobs:
+      set-environment-variables:
+        runs-on: ubuntu-latest
+     
+        steps:
+          - uses: actions/github-script@v6
+            id: my-script
+            with:
+              result-encoding: string
+              retries: 3
+              script: |
+          const issueTitle = `Nouvelle issue automatique`;
+          const issueBody = `Cette issue a été créée par le flux de travail de GitHub Actions.`;
+     
+          github.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: issueTitle,
+            body: issueBody
+          });
