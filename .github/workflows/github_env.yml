@@ -1,0 +1,26 @@
+    name: Ajouter des variables à l'environnement
+     
+    on:
+      push:
+        branches:
+          - main
+     
+    jobs:
+      set-environment-variables:
+        runs-on: ubuntu-latest
+     
+        steps:
+          - name: ⬇️ Récupérer le dépôt
+            uses: actions/checkout@v2
+          - name: 🛠 Configuration de node
+            uses: actions/setup-node@v2
+            with:
+              node-version: '14'
+          - name: 💻 Ajouter des variables à l'environnement
+            run: |
+              echo "MA_VARIABLE_ENV=hello" >> $GITHUB_ENV
+              echo "UNE_AUTRE_VARIABLE=world" >> $GITHUB_ENV
+          - name: 📊 Afficher les variables ajoutées
+            run: |
+              echo "Contenu de MA_VARIABLE_ENV: $MA_VARIABLE_ENV"
+              echo "Contenu de UNE_AUTRE_VARIABLE: $UNE_AUTRE_VARIABLE"
