@@ -28,4 +28,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Utilisation de la variable "var" dans un autre job
-        run: echo "Le token est : $MY_SECRET_TOKEN"
+        run: echo "Le token est : MY_SECRET_TOKEN"
